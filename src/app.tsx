@@ -16,6 +16,13 @@ export const initialStateConfig = {
   loading: <PageLoading />,
 };
 
+import { RequestConfig } from 'umi';
+export const request: RequestConfig = {
+  prefix: '/api',
+  timeout: 1000
+}
+
+
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
  * */
