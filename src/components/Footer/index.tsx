@@ -1,6 +1,6 @@
 import { GithubOutlined } from '@ant-design/icons';
 import { DefaultFooter } from '@ant-design/pro-components';
-import {PLANET_LINK} from "@/constants";
+import {GITHUB_LINK, PLANET_LINK} from "@/constants";
 const Footer: React.FC = () => {
   const defaultMessage = 'Benny 出品';
   const currentYear = new Date().getFullYear();
@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
         {
           key: 'github',
           title: <><GithubOutlined /> GitHub</>,
-          href: 'https://github.com/Bennie61',
+          href: GITHUB_LINK,
           blankTarget: true,
         },
         {

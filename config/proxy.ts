@@ -8,6 +8,7 @@
  */
 export default {
   dev: {
+    //Note: 如果前端请求的路径带有/api，那么就会被代理到 8080 端口
     // localhost:8000/api/** -> https://preview.pro.ant.design/api/**
     '/api': {
       // 要代理的地址
