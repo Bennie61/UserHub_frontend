@@ -9,11 +9,11 @@ import {
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Alert, message, Tabs } from 'antd';
+import {Alert, message, Tabs} from 'antd';
 import React, { useState } from 'react';
-import { history, useModel } from 'umi';
+import {history, Link, useModel} from 'umi';
 import styles from './index.less';
-import {GITHUB_LINK, SYSTEM_LOGO} from "@/constants";
+import {GITHUB_LINK} from "@/constants";
 const LoginMessage: React.FC<{
   content: string;
 }> = ({ content }) => (
@@ -71,9 +71,14 @@ const Login: React.FC = () => {
     <div className={styles.container}>
       <div className={styles.content}>
         <LoginForm
-          logo={<img alt="logo" src={SYSTEM_LOGO} />}
-          title="UserHub"
-          subTitle={'UserHub 用户一站通  '}
+          // logo={<img alt="logo" src={SYSTEM_LOGO} />}
+          title="UserHub 用户一站通"
+          subTitle={
+            <>
+              <p>基于Ant Design Pro开源前端框架开发</p>
+              <Link to="/user/register">新用户注册</Link>
+            </>
+          }
           initialValues={{
             autoLogin: true,
           }}
@@ -133,6 +138,7 @@ const Login: React.FC = () => {
             <ProFormCheckbox noStyle name="autoLogin">
               自动登录
             </ProFormCheckbox>
+            <Link to="/user/register">新用户注册</Link>
             <a
               style={{
                 float: 'right',
