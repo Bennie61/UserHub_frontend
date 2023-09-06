@@ -1,12 +1,13 @@
-import {message, Tabs} from 'antd';
-import React, {useState} from 'react';
-import {history} from 'umi';
-import {LockOutlined, UserOutlined,} from '@ant-design/icons';
+import { message, Tabs } from 'antd';
+import React, { useState } from 'react';
+import { history } from 'umi';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 // import {SYSTEM_LOGO} from "@/constants";
 import Footer from '@/components/Footer';
-import {register} from '@/services/ant-design-pro/api';
+import { register } from '@/services/ant-design-pro/api';
 import styles from './index.less';
-import {LoginForm, ProFormText,} from '@ant-design/pro-components';
+import { LoginForm, ProFormText } from '@ant-design/pro-components';
+import { SYSTEM_LOGO } from '@/constants';
 // Note: ctrl+ Alt+ O 自动去除所有没用到的引入
 
 const Register: React.FC = () => {
@@ -14,10 +15,10 @@ const Register: React.FC = () => {
 
   // Note：handleSubmit 表单提交的逻辑实现
   const handleSubmit = async (values: API.RegisterParams) => {
-    const { userPassword, checkPassword} = values;
+    const { userPassword, checkPassword } = values;
     // 校验
-    if(userPassword !== checkPassword){
-      message.error('两次输入的密码不一致 ')
+    if (userPassword !== checkPassword) {
+      message.error('两次输入的密码不一致 ');
     }
     try {
       // 注册
@@ -36,7 +37,7 @@ const Register: React.FC = () => {
           query,
         });
         return;
-      }else{
+      } else {
         throw new Error(`register error id = ${id}`);
       }
     } catch (error) {
@@ -49,13 +50,13 @@ const Register: React.FC = () => {
       <div className={styles.content}>
         <LoginForm
           submitter={{
-            searchConfig:{
-              submitText:'注册'
-            }
+            searchConfig: {
+              submitText: '注册',
+            },
           }}
-          // logo={<img alt="logo" src={SYSTEM_LOGO} />}
-          title="UserHub 用户注册"
-          subTitle={'UserHub 用户注册  '}
+          logo={<img alt="logo" src={SYSTEM_LOGO} />}
+          title="用户注册"
+          subTitle={'UserHub 用户注册页面'}
           initialValues={{
             autoLogin: true,
           }}
